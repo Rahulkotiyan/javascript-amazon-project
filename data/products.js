@@ -126,7 +126,7 @@ export function loadProducts(fun){
       return new Product(productDetails);
     });;
     console.log('load products');
-    fun();
+   
   });
   xhr.addEventListener('error',(error)=>{
     console.log('unexpected error. Please try again later');
