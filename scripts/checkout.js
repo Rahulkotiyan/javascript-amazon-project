@@ -5,23 +5,23 @@ import { loadProductsFetch } from "../data/products.js";
 //import '../data/backend-practice.js';
 import { loadCart } from "../data/cart.js";
 
-async function loadPage(){
-    
+async function loadPage() {
+  try {
     await loadProductsFetch();
 
-  const value = await new Promise((resolve) => {
+    const value = await new Promise((resolve) => {
       loadCart(() => {
-        resolve('value3');
+        resolve("value3");
       });
     });
+  } catch (error) {
+    console.log("Unexpected error ");
+  }
 
-    renderOrderSummary();
-    renderPaymentSummary();
-
-   
+  renderOrderSummary();
+  renderPaymentSummary();
 }
-loadPage()
-
+loadPage();
 
 /*
 Promise.all([
@@ -38,7 +38,6 @@ Promise.all([
     renderPaymentSummary();
 });
 */
-
 
 /*
 new Promise((resolve)=>{
@@ -58,7 +57,6 @@ new Promise((resolve)=>{
     renderPaymentSummary();
 });
 */
-
 
 /*
 loadProducts(() => {
